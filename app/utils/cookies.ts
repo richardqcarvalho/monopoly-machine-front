@@ -11,12 +11,13 @@ export async function login(name: string) {
   redirect('/')
 }
 
-export async function checkCookies() {
+export async function getPlayerName() {
   const cookieStore = await cookies()
 
   const name = cookieStore.get('name')
 
-  if (!name) redirect('/login')
+  if (name) return name.value
+  else redirect('/login')
 }
 
 export async function logout() {

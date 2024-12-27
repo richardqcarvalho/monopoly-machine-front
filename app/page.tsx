@@ -1,8 +1,8 @@
 import Home from './home/page'
-import { checkCookies } from './utils/cookies'
+import { getPlayerName } from './utils/cookies'
 
 export default async function Page() {
-  await checkCookies()
+  const name = await getPlayerName()
 
-  return <Home />
+  return <Home name={name} />
 }
