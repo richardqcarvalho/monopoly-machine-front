@@ -1,15 +1,10 @@
 'use client'
 
-import { redirect } from 'next/navigation'
 import { useState } from 'react'
+import { login } from '../utils/cookies'
 
 export default function Login() {
   const [name, setName] = useState('Testing')
-
-  const handleLogin = () => {
-    localStorage.setItem('token', '1234567890')
-    redirect('/')
-  }
 
   return (
     <div className='flex w-full flex-col items-center justify-center gap-10 sm:hidden'>
@@ -35,7 +30,7 @@ export default function Login() {
         </div>
         <button
           className='w-64 rounded-md bg-white px-4 py-3 text-sm text-blue-900 outline-none'
-          onClick={handleLogin}
+          onClick={() => login('12345678')}
         >
           Enter
         </button>
