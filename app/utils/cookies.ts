@@ -3,10 +3,10 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
-export async function login(token: string) {
+export async function login(name: string) {
   const cookieStore = await cookies()
 
-  cookieStore.set('token', token)
+  cookieStore.set('name', name)
 
   redirect('/')
 }
@@ -14,15 +14,15 @@ export async function login(token: string) {
 export async function checkCookies() {
   const cookieStore = await cookies()
 
-  const token = cookieStore.get('token')
+  const name = cookieStore.get('name')
 
-  if (!token) redirect('/login')
+  if (!name) redirect('/login')
 }
 
 export async function logout() {
   const cookieStore = await cookies()
 
-  cookieStore.delete('token')
+  cookieStore.delete('name')
 
   redirect('/login')
 }
