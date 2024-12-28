@@ -7,11 +7,11 @@ export default function Login() {
   const [name, setName] = useState('')
 
   return (
-    <div className='flex w-full flex-col items-center justify-center gap-10 sm:hidden'>
-      <div className='flex flex-col items-center justify-center'>
+    <main className='flex w-full flex-col items-center justify-center gap-10 sm:hidden'>
+      <header className='flex flex-col items-center justify-center'>
         <h1 className='text-2xl'>Welcome to</h1>
         <h2 className='text-3xl font-bold'>MONOPOLY MACHINE</h2>
-      </div>
+      </header>
       <div className='flex flex-col gap-6'>
         <div className='relative'>
           <label
@@ -22,7 +22,7 @@ export default function Login() {
           </label>
           <input
             id='name'
-            className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-sm outline-none placeholder:text-[#ffffff50]'
+            className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-sm outline-none placeholder:text-white/20'
             placeholder='Type your name'
             onChange={e => setName(e.target.value)}
             value={name}
@@ -38,6 +38,6 @@ export default function Login() {
           Enter
         </button>
       </div>
-    </div>
+    </main>
   )
 }
