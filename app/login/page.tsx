@@ -26,6 +26,9 @@ export default function Login() {
             placeholder='Type your name'
             onChange={e => setName(e.target.value)}
             value={name}
+            onKeyDown={e => {
+              if (e.key == 'Enter') login(name)
+            }}
           />
         </div>
         <button
