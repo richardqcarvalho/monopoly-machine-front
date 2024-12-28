@@ -22,7 +22,7 @@ export default function Login() {
           </label>
           <input
             id='name'
-            className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-sm outline-none placeholder:text-white/20'
+            className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-base outline-none placeholder:text-white/20'
             placeholder='Type your name'
             onChange={e => setName(e.target.value)}
             value={name}
@@ -32,7 +32,7 @@ export default function Login() {
           />
         </div>
         <button
-          className='w-64 rounded-md bg-white px-4 py-3 text-sm text-blue-900 outline-none'
+          className='rounded-md border border-white bg-blue-900 px-4 py-3 text-base text-white outline-none'
           onClick={() => login(name)}
         >
           Enter
