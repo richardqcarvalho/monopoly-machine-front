@@ -27,13 +27,7 @@ export function CreateAccount() {
       },
     })
 
-    if (response.status === 200) {
-      const { id } = await response.json()
-
-      localStorage.setItem('userId', id)
-
-      navigate('/login')
-    }
+    if (response.status === 200) navigate('/login')
   }
 
   return (
