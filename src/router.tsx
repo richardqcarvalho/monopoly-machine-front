@@ -1,3 +1,4 @@
+import { CreateAccount } from '@/pages/create-account'
 import { Home } from '@/pages/home'
 import { Login } from '@/pages/login'
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router'
@@ -17,6 +18,10 @@ export function Router() {
         <Route
           path='/login'
           element={<Login />}
+        />
+        <Route
+          path='/create-account'
+          element={<CreateAccount />}
         />
         <Route
           path='/'
