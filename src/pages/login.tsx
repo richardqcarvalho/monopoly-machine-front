@@ -3,14 +3,15 @@ import { useNavigate } from 'react-router'
 
 export function Login() {
   const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    const response = await fetch('http://localhost:4000/player', {
+    const response = await fetch('http://localhost:4000/login', {
       method: 'POST',
-      body: JSON.stringify({ name }),
+      body: JSON.stringify({ name, password }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -42,6 +43,22 @@ export function Login() {
             placeholder='Type your name'
             onChange={e => setName(e.target.value)}
             value={name}
+          />
+        </div>
+        <div className='relative'>
+          <label
+            htmlFor='password'
+            className='absolute -top-2.5 left-3 bg-blue-900 p-1 text-xs text-white'
+          >
+            Password
+          </label>
+          <input
+            id='password'
+            className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-base text-white outline-none placeholder:text-white/50'
+            placeholder='Type your password'
+            onChange={e => setPassword(e.target.value)}
+            value={password}
+            type='password'
           />
         </div>
         <button
