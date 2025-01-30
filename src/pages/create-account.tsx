@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-export function CreateAccount() {
+const CreateAccount = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
@@ -14,7 +14,7 @@ export function CreateAccount() {
     [passwordConfirmation, password],
   )
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (error) return
@@ -99,3 +99,5 @@ export function CreateAccount() {
     </div>
   )
 }
+
+export { CreateAccount }

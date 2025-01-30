@@ -3,7 +3,7 @@ import { Home } from '@/pages/home'
 import { Login } from '@/pages/login'
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router'
 
-function PrivateRoute() {
+const PrivateRoute = () => {
   const userId = localStorage.getItem('userId') as { userId?: string }
 
   if (!userId) return <Navigate to='/login' />
@@ -11,7 +11,7 @@ function PrivateRoute() {
   return <Outlet />
 }
 
-export function Router() {
+const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -36,3 +36,5 @@ export function Router() {
     </BrowserRouter>
   )
 }
+
+export { Router }

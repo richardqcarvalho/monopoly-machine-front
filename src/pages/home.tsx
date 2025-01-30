@@ -1,7 +1,25 @@
-export function Home() {
+import { useNavigate } from 'react-router'
+
+const Home = () => {
+  const navigate = useNavigate()
+
+  const logout = () => {
+    localStorage.removeItem('userId')
+
+    navigate('/login')
+  }
+
   return (
-    <div className='h-screen w-screen bg-blue-900'>
+    <div className='flex h-screen w-screen flex-col items-center bg-blue-900'>
       <span className='text-white'>Home</span>
+      <button
+        onClick={logout}
+        className='cursor-pointer rounded-md border border-white bg-blue-900 px-4 py-3 text-base text-white outline-none'
+      >
+        Logout
+      </button>
     </div>
   )
 }
+
+export { Home }

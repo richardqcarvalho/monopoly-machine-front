@@ -1,12 +1,14 @@
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-export function Login() {
+const Login = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  const goToCreateAccount = () => navigate('/create-account')
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const response = await fetch('http://localhost:4000/login', {
@@ -67,7 +69,15 @@ export function Login() {
         >
           Enter
         </button>
+        <button
+          onClick={goToCreateAccount}
+          className='cursor-pointer rounded-md border border-white bg-blue-900 px-4 py-3 text-base text-white outline-none'
+        >
+          Create account
+        </button>
       </form>
     </div>
   )
 }
+
+export { Login }
