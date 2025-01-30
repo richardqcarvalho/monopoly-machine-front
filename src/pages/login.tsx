@@ -19,11 +19,13 @@ const Login = () => {
       },
     })
 
-    const { id } = await response.json()
+    if (response.status === 200) {
+      const { id } = await response.json()
 
-    localStorage.setItem('userId', id)
+      localStorage.setItem('userId', id)
 
-    navigate('/')
+      navigate('/')
+    }
   }
 
   return (
