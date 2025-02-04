@@ -1,3 +1,4 @@
+import { Button } from '@component/button'
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -66,19 +67,9 @@ export const Login = () => {
               type='password'
             />
           </div>
-          <button
-            type='submit'
-            className='cursor-pointer rounded-md border border-white bg-blue-900 px-4 py-3 text-sm text-white outline-none'
-          >
-            Enter
-          </button>
+          <Button type='submit'>Enter</Button>
         </form>
-        <button
-          onClick={goToCreateAccount}
-          className='cursor-pointer rounded-md border border-white bg-blue-900 px-4 py-3 text-sm text-white outline-none'
-        >
-          Create account
-        </button>
+        <Button onClick={goToCreateAccount}>Create account</Button>
       </div>
     </div>
   )

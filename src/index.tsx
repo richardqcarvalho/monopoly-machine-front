@@ -1,6 +1,6 @@
-import { Router } from '@/router'
+import { Router } from '@router'
+import '@styles'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 
 const root = document.getElementById('root') as HTMLElement
 

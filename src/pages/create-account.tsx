@@ -1,3 +1,4 @@
+import { Button } from '@component/button'
 import { ArrowLeft } from '@phosphor-icons/react'
 import clsx from 'clsx'
 import { FormEvent, useEffect, useState } from 'react'
@@ -101,12 +102,7 @@ export const CreateAccount = () => {
               type='password'
             />
           </div>
-          <button
-            type='submit'
-            className='cursor-pointer rounded-md border border-white bg-blue-900 px-4 py-3 text-sm text-white outline-none'
-          >
-            Create
-          </button>
+          <Button type='submit'>Create</Button>
         </form>
       </div>
     </div>
