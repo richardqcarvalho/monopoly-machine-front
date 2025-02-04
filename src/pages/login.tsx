@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-const Login = () => {
+export const Login = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
@@ -83,5 +83,3 @@ const Login = () => {
     </div>
   )
 }
-
-export { Login }

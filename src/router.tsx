@@ -11,7 +11,7 @@ const PrivateRoute = () => {
   return <Outlet />
 }
 
-const Router = () => {
+export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -36,5 +36,3 @@ const Router = () => {
     </BrowserRouter>
   )
 }
-
-export { Router }

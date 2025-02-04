@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-const CreateAccount = () => {
+export const CreateAccount = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
@@ -112,5 +112,3 @@ const CreateAccount = () => {
     </div>
   )
 }
-
-export { CreateAccount }

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router'
 
-const Home = () => {
+export const Home = () => {
   const navigate = useNavigate()
 
   const logout = () => {
@@ -21,5 +21,3 @@ const Home = () => {
     </div>
   )
 }
-
-export { Home }
