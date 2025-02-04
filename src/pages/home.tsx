@@ -14,7 +14,7 @@ const Home = () => {
       <span className='text-white'>Home</span>
       <button
         onClick={logout}
-        className='cursor-pointer rounded-md border border-white bg-blue-900 px-4 py-3 text-base text-white outline-none'
+        className='cursor-pointer rounded-md border border-white bg-blue-900 px-4 py-3 text-sm text-white outline-none'
       >
         Logout
       </button>

@@ -49,13 +49,13 @@ const CreateAccount = () => {
           <div className='relative'>
             <label
               htmlFor='name'
-              className='absolute -top-2.5 left-3 bg-blue-900 p-1 text-xs text-white'
+              className='absolute -top-2.5 left-3 bg-blue-900 px-1 py-0.5 text-xs text-white'
             >
               Name
             </label>
             <input
               id='name'
-              className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-base text-white outline-none placeholder:text-white/50'
+              className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-sm text-white outline-none placeholder:text-white/50'
               placeholder='Type your name'
               onChange={e => setName(e.target.value)}
               value={name}
@@ -66,13 +66,13 @@ const CreateAccount = () => {
           <div className='relative'>
             <label
               htmlFor='password'
-              className='absolute -top-2.5 left-3 bg-blue-900 p-1 text-xs text-white'
+              className='absolute -top-2.5 left-3 bg-blue-900 px-1 py-0.5 text-xs text-white'
             >
               Password
             </label>
             <input
               id='password'
-              className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-base text-white outline-none placeholder:text-white/50'
+              className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-sm text-white outline-none placeholder:text-white/50'
               placeholder='Type your password'
               onChange={e => setPassword(e.target.value)}
               value={password}
@@ -83,7 +83,7 @@ const CreateAccount = () => {
             <label
               htmlFor='password-confirmation'
               className={clsx(
-                'absolute -top-2.5 left-3 bg-blue-900 p-1 text-xs',
+                'absolute -top-2.5 left-3 bg-blue-900 px-1 py-0.5 text-xs',
                 error ? 'text-red-500' : 'text-white',
               )}
             >
@@ -92,7 +92,7 @@ const CreateAccount = () => {
             <input
               id='password-confirmation'
               className={clsx(
-                'w-64 rounded-md border bg-blue-900 px-4 py-3 text-base text-white outline-none placeholder:text-white/50',
+                'w-64 rounded-md border bg-blue-900 px-4 py-3 text-sm text-white outline-none placeholder:text-white/50',
                 error ? 'border-red-500' : 'border-white',
               )}
               placeholder='Type your password again'
@@ -103,7 +103,7 @@ const CreateAccount = () => {
           </div>
           <button
             type='submit'
-            className='cursor-pointer rounded-md border border-white bg-blue-900 px-4 py-3 text-base text-white outline-none'
+            className='cursor-pointer rounded-md border border-white bg-blue-900 px-4 py-3 text-sm text-white outline-none'
           >
             Create
           </button>
