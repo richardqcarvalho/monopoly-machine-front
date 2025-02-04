@@ -1,6 +1,6 @@
 import { Button } from '@component/button'
 import { ArrowLeft } from '@phosphor-icons/react'
-import clsx from 'clsx'
+import clsx from 'clsx/lite'
 import { FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -36,12 +36,12 @@ export const CreateAccount = () => {
     <div className='flex h-screen w-screen items-center justify-center gap-10 bg-blue-900'>
       <div className='flex flex-col gap-6 rounded-md border border-white p-6'>
         <div>
-          <button
+          <Button
             onClick={() => navigate('/login')}
-            className='cursor-pointer rounded-full border border-white p-1 text-white transition hover:bg-white hover:text-blue-900'
+            className='rounded-full p-3'
           >
-            <ArrowLeft />
-          </button>
+            <ArrowLeft className='text-md' />
+          </Button>
         </div>
         <form
           onSubmit={onSubmit}
