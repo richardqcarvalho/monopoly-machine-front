@@ -1,4 +1,5 @@
 import { Button } from '@component/button'
+import { SignOut } from '@phosphor-icons/react'
 import { useNavigate } from 'react-router'
 
 export const Home = () => {
@@ -12,8 +13,14 @@ export const Home = () => {
 
   return (
     <div className='flex h-screen w-screen flex-col items-center bg-blue-900'>
-      <span className='text-white'>Home</span>
-      <Button onClick={logout}>Logout</Button>
+      <div className='flex w-full justify-end p-4'>
+        <Button
+          onClick={logout}
+          className='rounded-full p-3'
+        >
+          <SignOut className='text-md' />
+        </Button>
+      </div>
     </div>
   )
 }
