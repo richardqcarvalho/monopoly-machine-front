@@ -1,4 +1,5 @@
 import { Button } from '@component/button'
+import { Input } from '@component/input'
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -36,37 +37,21 @@ export const Login = () => {
           onSubmit={onSubmit}
           className='flex flex-col gap-6'
         >
-          <div className='relative'>
-            <label
-              htmlFor='name'
-              className='absolute -top-2.5 left-3 bg-blue-900 px-1 py-0.5 text-xs text-white'
-            >
-              Name
-            </label>
-            <input
-              id='name'
-              className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-sm text-white outline-none placeholder:text-white/50'
-              placeholder='Type your name'
-              onChange={e => setName(e.target.value)}
-              value={name}
-            />
-          </div>
-          <div className='relative'>
-            <label
-              htmlFor='password'
-              className='absolute -top-2.5 left-3 bg-blue-900 px-1 py-0.5 text-xs text-white'
-            >
-              Password
-            </label>
-            <input
-              id='password'
-              className='w-64 rounded-md border border-white bg-blue-900 px-4 py-3 text-sm text-white outline-none placeholder:text-white/50'
-              placeholder='Type your password'
-              onChange={e => setPassword(e.target.value)}
-              value={password}
-              type='password'
-            />
-          </div>
+          <Input
+            id='name'
+            placeholder='Type your name'
+            onChange={e => setName(e.target.value)}
+            value={name}
+            label='Name'
+          />
+          <Input
+            id='password'
+            placeholder='Type your password'
+            onChange={e => setPassword(e.target.value)}
+            value={password}
+            type='password'
+            label='Password'
+          />
           <Button type='submit'>Enter</Button>
         </form>
         <Button onClick={goToCreateAccount}>Create account</Button>
