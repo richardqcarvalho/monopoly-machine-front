@@ -33,7 +33,7 @@ export const CreateAccount = () => {
   }
 
   return (
-    <div className='flex h-screen w-screen items-center justify-center gap-10 bg-blue-900'>
+    <div className='flex h-screen w-screen items-center justify-center gap-10'>
       <div className='flex flex-col gap-6 rounded-md border border-white p-6'>
         <div>
           <Button

@@ -12,7 +12,7 @@ export const Home = () => {
   }
 
   return (
-    <div className='flex h-screen w-screen flex-col items-center bg-blue-900'>
+    <div className='flex h-screen w-screen flex-col items-center'>
       <div className='flex w-full justify-end p-4'>
         <Button
           onClick={logout}

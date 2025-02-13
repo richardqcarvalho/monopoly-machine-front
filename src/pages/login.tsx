@@ -31,7 +31,7 @@ export const Login = () => {
   }
 
   return (
-    <div className='flex h-screen w-screen flex-col items-center justify-center gap-10 bg-blue-900'>
+    <div className='flex h-screen w-screen flex-col items-center justify-center gap-10'>
       <div className='flex flex-col gap-6'>
         <form
           onSubmit={onSubmit}
