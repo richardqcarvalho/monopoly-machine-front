@@ -1,5 +1,5 @@
-import { Button } from '@components/button'
-import { SignOut } from '@phosphor-icons/react'
+import { Button } from '@/components/ui/button'
+import { LogOut } from 'lucide-react'
 import { useNavigate } from 'react-router'
 
 export const Home = () => {
@@ -18,7 +18,7 @@ export const Home = () => {
           onClick={logout}
           className='rounded-full p-3'
         >
-          <SignOut className='text-md' />
+          <LogOut className='text-md' />
         </Button>
       </div>
     </div>

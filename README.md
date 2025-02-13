@@ -4,3 +4,4 @@
 - Typescript
 - Vite
 - TailwindCSS
+- Shadcn/ui

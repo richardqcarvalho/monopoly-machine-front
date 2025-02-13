@@ -1,6 +1,6 @@
-import { Button } from '@components/button'
-import { Input } from '@components/input'
-import { ArrowLeft } from '@phosphor-icons/react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { ArrowLeft } from 'lucide-react'
 import { FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
