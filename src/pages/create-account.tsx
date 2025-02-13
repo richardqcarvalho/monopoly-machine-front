@@ -1,5 +1,5 @@
-import { Button } from '@component/button'
-import { Input } from '@component/input'
+import { Button } from '@components/button'
+import { Input } from '@components/input'
 import { ArrowLeft } from '@phosphor-icons/react'
 import { FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'

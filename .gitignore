@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Writable files unless README
+*.md
+!README.md
+
+# Lock files
+*.lock
+*-lock.json

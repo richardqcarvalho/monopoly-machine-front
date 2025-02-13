@@ -1,4 +1,4 @@
-import { Button } from '@component/button'
+import { Button } from '@components/button'
 import { SignOut } from '@phosphor-icons/react'
 import { useNavigate } from 'react-router'
 

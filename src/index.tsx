@@ -1,4 +1,4 @@
-import { Router } from '@router'
+import { Router } from '@routes'
 import '@styles'
 import { createRoot } from 'react-dom/client'
 
