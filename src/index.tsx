@@ -10,7 +10,9 @@ const queryClient = new QueryClient()
 createRoot(root).render(
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
-      <Router />
+      <div className='flex h-svh w-screen flex-col items-center justify-center'>
+        <Router />
+      </div>
     </ThemeProvider>
   </QueryClientProvider>,
 )
