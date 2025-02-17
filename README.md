@@ -5,3 +5,5 @@
 - Vite
 - TailwindCSS
 - Shadcn/ui
+- React Query
+- React Hook Form
