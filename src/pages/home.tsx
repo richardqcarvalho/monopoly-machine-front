@@ -6,7 +6,7 @@ export const Home = () => {
   const navigate = useNavigate()
 
   const logout = () => {
-    localStorage.removeItem('userId')
+    localStorage.removeItem('playerId')
 
     navigate('/login')
   }
@@ -16,7 +16,7 @@ export const Home = () => {
       <div className='flex w-full justify-end p-4'>
         <Button
           onClick={logout}
-          className='rounded-full p-3'
+          variant='outline'
         >
           <LogOut className='text-md' />
         </Button>

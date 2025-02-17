@@ -4,9 +4,9 @@ import { Login } from '@/pages/login'
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router'
 
 const PrivateRoute = () => {
-  const userId = localStorage.getItem('userId') as { userId?: string }
+  const playerId = localStorage.getItem('playerId') as { playerId?: string }
 
-  if (!userId) return <Navigate to='/login' />
+  if (!playerId) return <Navigate to='/login' />
 
   return <Outlet />
 }

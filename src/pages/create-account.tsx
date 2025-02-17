@@ -1,36 +1,19 @@
+import { createAccount } from '@/actions/player'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { CreateAccountT } from '@/types/player'
+import { useMutation } from '@tanstack/react-query'
 import { ArrowLeft } from 'lucide-react'
-import { FormEvent, useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 
 export const CreateAccount = () => {
-  const [name, setName] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirmation, setPasswordConfirmation] = useState('')
-  const [error, setError] = useState(true)
   const navigate = useNavigate()
-
-  useEffect(
-    () => setError(password !== passwordConfirmation),
-    [passwordConfirmation, password],
-  )
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    if (error) return
-
-    const response = await fetch('http://localhost:4000/player', {
-      method: 'POST',
-      body: JSON.stringify({ name, password }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-
-    if (response.status === 200) navigate('/login')
-  }
+  const { register, handleSubmit } = useForm<CreateAccountT>()
+  const { isPending, mutate } = useMutation({
+    mutationFn: createAccount,
+    onSuccess: () => navigate('/login'),
+  })
 
   return (
     <div className='flex h-screen w-screen items-center justify-center gap-10'>
@@ -38,42 +21,39 @@ export const CreateAccount = () => {
         <div>
           <Button
             onClick={() => navigate('/login')}
-            className='rounded-full p-3'
+            variant='outline'
           >
             <ArrowLeft className='text-md' />
           </Button>
         </div>
         <form
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit(fields => mutate(fields))}
           className='flex flex-col gap-6'
         >
           <Input
             id='name'
             placeholder='Type your name'
-            onChange={e => setName(e.target.value)}
-            value={name}
-            readOnly
-            onFocus={e => e.target.removeAttribute('readOnly')}
-            label='Name'
+            {...register('name', { required: true })}
           />
           <Input
             id='password'
             placeholder='Type your password'
-            onChange={e => setPassword(e.target.value)}
-            value={password}
             type='password'
-            label='Password'
+            {...register('password', { required: true })}
           />
           <Input
             id='password-confirmation'
             placeholder='Type your password again'
-            onChange={e => setPasswordConfirmation(e.target.value)}
-            value={passwordConfirmation}
             type='password'
-            label='Password confirmation'
-            error={error}
+            {...register('passwordConfirmation', { required: true })}
           />
-          <Button type='submit'>Create</Button>
+          <Button
+            type='submit'
+            disabled={isPending}
+            variant='outline'
+          >
+            Create
+          </Button>
         </form>
       </div>
     </div>

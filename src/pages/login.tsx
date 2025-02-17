@@ -1,60 +1,55 @@
+import { login } from '@/actions/player'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { FormEvent, useState } from 'react'
+import { LoginT } from '@/types/player'
+import { useMutation } from '@tanstack/react-query'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 
 export const Login = () => {
-  const [name, setName] = useState('')
-  const [password, setPassword] = useState('')
   const navigate = useNavigate()
-
-  const goToCreateAccount = () => navigate('/create-account')
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const response = await fetch('http://localhost:4000/login', {
-      method: 'POST',
-      body: JSON.stringify({ name, password }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-
-    if (response.status === 200) {
-      const { id } = await response.json()
-
-      localStorage.setItem('userId', id)
-
-      navigate('/')
-    }
-  }
+  const { register, handleSubmit } = useForm<LoginT>()
+  const { isPending, mutate } = useMutation({
+    mutationFn: login,
+    onSuccess: (id?: string) => {
+      if (id) {
+        localStorage.setItem('playerId', id)
+        navigate('/')
+      }
+    },
+  })
 
   return (
     <div className='flex h-screen w-screen flex-col items-center justify-center gap-10'>
       <div className='flex flex-col gap-6'>
         <form
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit(fields => mutate(fields))}
           className='flex flex-col gap-6'
         >
           <Input
-            id='name'
             placeholder='Type your name'
-            onChange={e => setName(e.target.value)}
-            value={name}
-            label='Name'
+            {...register('name', { required: true })}
           />
           <Input
-            id='password'
             placeholder='Type your password'
-            onChange={e => setPassword(e.target.value)}
-            value={password}
             type='password'
-            label='Password'
+            {...register('password', { required: true })}
           />
-          <Button type='submit'>Enter</Button>
+          <Button
+            type='submit'
+            disabled={isPending}
+            variant='outline'
+          >
+            Enter
+          </Button>
         </form>
-        <Button onClick={goToCreateAccount}>Create account</Button>
+        <Button
+          onClick={() => navigate('/create-account')}
+          disabled={isPending}
+          variant='outline'
+        >
+          Create account
+        </Button>
       </div>
     </div>
   )
