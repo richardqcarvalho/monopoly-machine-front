@@ -30,3 +30,7 @@ dist-ssr
 # Lock files
 *.lock
 *-lock.json
+
+# Env files
+.env*
+!.env.example
