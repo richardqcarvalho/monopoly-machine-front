@@ -60,7 +60,6 @@ export const Login = () => {
             <Button
               type='submit'
               disabled={isPending}
-              variant='outline'
               className='w-full'
             >
               Enter
@@ -69,7 +68,7 @@ export const Login = () => {
         </form>
         <div className='my-4 flex items-center gap-4'>
           <Separator className='flex-1' />
-          <span>or</span>
+          <span>Don't you have it?</span>
           <Separator className='flex-1' />
         </div>
         <Button

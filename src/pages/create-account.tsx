@@ -81,7 +81,6 @@ export const CreateAccount = () => {
         <Button
           type='submit'
           disabled={isPending}
-          variant='outline'
           className='w-full'
         >
           Create
