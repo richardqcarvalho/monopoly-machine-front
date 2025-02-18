@@ -4,7 +4,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
@@ -75,17 +74,15 @@ export const CreateAccount = () => {
               {...register('passwordConfirmation', { required: true })}
             />
           </div>
+          <Button
+            type='submit'
+            disabled={isPending}
+            className='w-full'
+          >
+            Create
+          </Button>
         </form>
       </CardContent>
-      <CardFooter>
-        <Button
-          type='submit'
-          disabled={isPending}
-          className='w-full'
-        >
-          Create
-        </Button>
-      </CardFooter>
     </Card>
   )
 }
