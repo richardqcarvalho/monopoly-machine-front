@@ -5,7 +5,7 @@ const { VITE_API_HOST } = import.meta.env
 export const createRoom = async ({ name, password, playerId }: CreateRoomT) => {
   const response = await fetch(`${VITE_API_HOST}/room/${playerId}`, {
     method: 'POST',
-    body: JSON.stringify({ name, password }),
+    body: JSON.stringify({ name, ...(password && { password }) }),
     headers: {
       'Content-Type': 'application/json',
     },

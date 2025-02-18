@@ -56,7 +56,7 @@ export const CreateRoom = () => {
               id='password'
               placeholder='Type your password'
               type='password'
-              {...register('password', { required: true })}
+              {...register('password')}
             />
           </div>
           <div>
