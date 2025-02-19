@@ -1,28 +1,18 @@
+import { api } from '@/lib/api'
 import { LoginT } from '@/types/player'
-
-const { VITE_API_HOST } = import.meta.env
+import { EntityT } from '@/types/shared'
 
 export const createAccount = async ({ name, password }: LoginT) =>
-  await fetch(`${VITE_API_HOST}/player`, {
-    method: 'POST',
-    body: JSON.stringify({ name, password }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  api.post('/player', {
+    name,
+    password,
   })
 
 export const login = async ({ name, password }: LoginT) => {
-  const response = await fetch(`${VITE_API_HOST}/login`, {
-    method: 'POST',
-    body: JSON.stringify({ name, password }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  const { data } = await api.post<EntityT>('/login', {
+    name,
+    password,
   })
 
-  if (response.status !== 200) return
-
-  const { id } = await response.json()
-
-  return id
+  return data
 }

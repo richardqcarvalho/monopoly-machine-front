@@ -20,9 +20,9 @@ export const Login = () => {
   const { register, handleSubmit } = useForm<LoginT>()
   const { isPending, mutate } = useMutation({
     mutationFn: login,
-    onSuccess: (id?: string) => {
-      if (id) {
-        localStorage.setItem('playerId', id)
+    onSuccess: data => {
+      if (data) {
+        localStorage.setItem('playerId', data.id)
         navigate('/')
       }
     },

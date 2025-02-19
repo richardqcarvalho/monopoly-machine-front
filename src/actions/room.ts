@@ -1,41 +1,24 @@
+import { api } from '@/lib/api'
 import { CreateRoomReturnT, CreateRoomT, GetRoomT, RoomT } from '@/types/room'
-
-const { VITE_API_HOST } = import.meta.env
+import { EntityT } from '@/types/shared'
 
 export const createRoom = async ({ name, password, playerId }: CreateRoomT) => {
-  const response = await fetch(`${VITE_API_HOST}/room/${playerId}`, {
-    method: 'POST',
-    body: JSON.stringify({ name, ...(password && { password }) }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  const { data } = await api.post<CreateRoomReturnT>(`/room/${playerId}`, {
+    name,
+    ...(password && { password }),
   })
-
-  if (response.status !== 200) return
-
-  const data: CreateRoomReturnT = await response.json()
 
   return data
 }
 
 export const getRooms = async () => {
-  const response = await fetch(`${VITE_API_HOST}/rooms`)
+  const { data } = await api.get<EntityT[]>('/rooms')
 
-  if (response.status !== 200) return []
-
-  const rooms = await response.json()
-
-  return rooms
+  return data
 }
 
 export const getRoom = async ({ roomId }: GetRoomT) => {
-  if (!roomId) return
+  const { data } = await api.get<RoomT>(`/room/${roomId}`)
 
-  const response = await fetch(`${VITE_API_HOST}/room/${roomId}`)
-
-  if (response.status !== 200) return
-
-  const room: RoomT = await response.json()
-
-  return room
+  return data
 }
