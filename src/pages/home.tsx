@@ -3,13 +3,14 @@ import { CreateRoom } from '@/components/create-room'
 import { RoomsTable } from '@/components/rooms-table'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
+import { EntityT } from '@/types/shared'
 import { useQuery } from '@tanstack/react-query'
 import { LogOut } from 'lucide-react'
 import { useNavigate } from 'react-router'
 
 export const Home = () => {
   const navigate = useNavigate()
-  const { data: rooms } = useQuery({
+  const { data: rooms } = useQuery<EntityT[]>({
     queryKey: ['get-rooms'],
     queryFn: getRooms,
     initialData: [],

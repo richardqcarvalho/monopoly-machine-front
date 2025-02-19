@@ -6,9 +6,12 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { RoomT } from '@/types/room'
+import { EntityT } from '@/types/shared'
+import { useNavigate } from 'react-router'
 
-export const RoomsTable = ({ rooms }: { rooms: RoomT[] }) => {
+export const RoomsTable = ({ rooms }: { rooms: EntityT[] }) => {
+  const navigate = useNavigate()
+
   return (
     <Table>
       <TableHeader>
@@ -18,7 +21,11 @@ export const RoomsTable = ({ rooms }: { rooms: RoomT[] }) => {
       </TableHeader>
       <TableBody>
         {rooms.map(room => (
-          <TableRow key={room.id}>
+          <TableRow
+            key={room.id}
+            className='cursor-pointer'
+            onClick={() => navigate(`/room/${room.id}`)}
+          >
             <TableCell>{room.name}</TableCell>
           </TableRow>
         ))}

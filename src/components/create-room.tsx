@@ -21,8 +21,8 @@ export const CreateRoom = () => {
   const { register, handleSubmit } = useForm<CreateRoomT>()
   const { isPending, mutate } = useMutation({
     mutationFn: createRoom,
-    onSuccess: (id?: string) => {
-      if (id) navigate(`/room/${id}`)
+    onSuccess: data => {
+      if (data) navigate(`/room/${data.roomId}`)
     },
   })
 

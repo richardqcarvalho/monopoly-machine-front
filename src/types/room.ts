@@ -1,11 +1,17 @@
-import { LoginT } from '@/types/player'
+import { LoginT, PlayerT } from '@/types/player'
+import { EntityT } from '@/types/shared'
 
 export type RoomT = {
-  id: string
   name: string
-  password: string
-  players: string[]
   banker: string
+  players: PlayerT[]
+}
+
+export type CreateRoomReturnT = {
+  roomId: string
+  rooms: EntityT[]
 }
 
 export type CreateRoomT = LoginT & { playerId: string }
+
+export type GetRoomT = { roomId?: string }

@@ -1,6 +1,7 @@
 import { CreateAccount } from '@/pages/create-account'
 import { Home } from '@/pages/home'
 import { Login } from '@/pages/login'
+import { Room } from '@/pages/room'
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router'
 
 const PrivateRoute = () => {
@@ -30,6 +31,10 @@ export const Router = () => {
           <Route
             index
             element={<Home />}
+          />
+          <Route
+            path='/room/:roomId'
+            element={<Room />}
           />
         </Route>
       </Routes>
