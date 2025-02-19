@@ -3,6 +3,7 @@
 - React
 - Typescript
 - Vite
+- Axios
 - TailwindCSS
 - Shadcn/ui
 - React Query
