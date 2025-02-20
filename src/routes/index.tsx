@@ -5,7 +5,7 @@ import { Room } from '@/pages/room'
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router'
 
 const PrivateRoute = () => {
-  const playerId = localStorage.getItem('playerId') as { playerId?: string }
+  const playerId = localStorage.getItem('playerId')
 
   if (!playerId) return <Navigate to='/login' />
 
